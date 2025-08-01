@@ -9,14 +9,19 @@ import {
   MenuItem,
   useTheme,
   useMediaQuery,
+  Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useThemeContext } from "../hooks/useThemeContext";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const theme = useTheme();
+  const { mode, toggleTheme } = useThemeContext();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -55,6 +60,14 @@ const Navbar = () => {
         >
           LUXSTAY
         </Typography>
+
+        <Box sx={{ display: "flex", alignItems: "center", mr: 2 }}>
+          <Tooltip title={`${mode === "dark" ? "Açık" : "Koyu"} tema`}>
+            <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
+              {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
+          </Tooltip>
+        </Box>
 
         {isMobile ? (
           <Box>
@@ -116,7 +129,7 @@ const Navbar = () => {
             ))}
             <Button
               variant="contained"
-              color="secondary"
+              color="warning"
               component={Link}
               to="/booking"
               sx={{ ml: 2 }}

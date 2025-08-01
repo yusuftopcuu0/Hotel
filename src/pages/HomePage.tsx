@@ -121,7 +121,8 @@ export default function HomePage() {
 
       <Box
         sx={{
-          bgcolor: theme.palette.grey[50],
+          bgcolor:
+            theme.palette.mode === "dark" ? "black" : theme.palette.grey[50],
           py: 8,
           textAlign: "center",
         }}
