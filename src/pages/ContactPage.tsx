@@ -44,10 +44,8 @@ const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form gönderme işlemleri buraya eklenecek
     console.log("Form gönderildi:", formData);
     setOpenSnackbar(true);
-    // Formu temizle
     setFormData({
       name: "",
       email: "",
@@ -110,7 +108,7 @@ const ContactPage: React.FC = () => {
                     Çalışma Saatleri:
                   </Typography>
                   <Typography>Pazartesi - Cuma: 08:00 - 22:00</Typography>
-                  <Typography>Cumartesi - Pazar: 09:00 - 20:00</Typography>
+                  <Typography>Cumartesi - Pazar: 09:00 - 21:00</Typography>
                 </div>
               </Box>
             </Box>
